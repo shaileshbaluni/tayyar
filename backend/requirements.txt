@@ -6,6 +6,7 @@ pydantic-settings>=2.6.0
 aiofiles>=24.1.0
 httpx>=0.27.0
 websockets>=13.0
+PyMuPDF>=1.24.0
 
 # Pipeline 1 — Pipecat voice (install when Daily + keys are ready)
 pipecat-ai[google,daily]>=0.0.105
