@@ -1,0 +1,22 @@
+{
+  "company": "Flipkart",
+  "rounds": {
+    "R1": [
+      "Pitch yourself as an engineer in 90 seconds.",
+      "Implement LRU cache — discuss eviction and concurrency.",
+      "What is the hardest technical decision you owned?"
+    ],
+    "R2": [
+      "Design Flipkart's search ranking service at a high level.",
+      "How would you shard order data for peak sale events?"
+    ],
+    "R3": [
+      "Conflict with PM on scope — walk me through STAR.",
+      "Tell me about a time you improved reliability measurably."
+    ],
+    "R4": [
+      "Competing offers and Flipkart fit.",
+      "Location and team preferences."
+    ]
+  }
+}

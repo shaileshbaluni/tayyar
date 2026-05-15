@@ -1,0 +1,43 @@
+{
+  "company": "BFSI",
+  "role": "Banking Professional",
+  "industry": "Banking, Financial Services & Insurance",
+  "rounds": {
+    "R1": [
+      "If a sum of money doubles itself in 8 years at simple interest, what is the rate of interest?",
+      "What is the current repo rate set by RBI?",
+      "Explain the difference between NEFT, RTGS, and IMPS.",
+      "What is a Non-Performing Asset (NPA)?",
+      "Calculate the compound interest on Rs. 15,000 at 10% per annum for 2 years.",
+      "What is the Basel III framework?",
+      "Explain what KYC (Know Your Customer) means.",
+      "What is the current CRR (Cash Reserve Ratio)?"
+    ],
+    "R2": [
+      "How would you assess credit risk for a loan applicant?",
+      "Explain the process of underwriting in insurance.",
+      "What is Anti-Money Laundering (AML) compliance?",
+      "How would you handle a customer complaint about unauthorized transactions?",
+      "Explain the concept of derivative instruments.",
+      "What are the key factors in determining interest rates for different loan products?",
+      "How would you cross-sell financial products to existing customers?",
+      "Explain the difference between term insurance and whole life insurance."
+    ],
+    "R3": [
+      "A customer offers you a bribe to approve their loan. How would you handle this?",
+      "Tell me about a time you identified a potential fraud case.",
+      "How do you handle aggressive or angry customers?",
+      "Describe a situation where you had to meet aggressive sales targets.",
+      "What would you do if you found your colleague violating compliance norms?",
+      "How do you balance customer satisfaction with company policies?"
+    ],
+    "R4": [
+      "Are you willing to work in branch banking if required?",
+      "Are you flexible for transfers across cities?",
+      "Are you comfortable with weekend working?",
+      "How do you handle target-oriented work environments?",
+      "What are your salary expectations?",
+      "Why banking as a career?"
+    ]
+  }
+}

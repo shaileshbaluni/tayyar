@@ -1,0 +1,23 @@
+{
+  "company": "TCS",
+  "rounds": {
+    "R1": [
+      "Walk me through your strongest project in under two minutes.",
+      "Reverse a linked list on paper — then discuss complexity.",
+      "Why TCS, and what do you know about our digital offerings?"
+    ],
+    "R2": [
+      "Design a rate limiter for a public API. What trade-offs would you discuss with the team?",
+      "Tell me about a production incident you debugged. What was the root cause?",
+      "How would you choose between Redis and materialized views for a read-heavy dashboard?"
+    ],
+    "R3": [
+      "Tell me about a time you disagreed with a tech lead. What was the outcome?",
+      "Describe a deadline you almost missed — how did you communicate and recover?"
+    ],
+    "R4": [
+      "What are your compensation expectations and earliest joining date?",
+      "Are you open to relocation within India?"
+    ]
+  }
+}

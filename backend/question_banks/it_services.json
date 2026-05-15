@@ -1,0 +1,50 @@
+{
+  "company": "IT Services",
+  "role": "Software Engineer",
+  "industry": "IT Services & Product",
+  "rounds": {
+    "R1": [
+      "Implement a function to reverse a linked list.",
+      "Find the kth largest element in an unsorted array.",
+      "Check if a binary tree is a valid binary search tree.",
+      "Implement a LRU (Least Recently Used) cache.",
+      "Find the longest substring without repeating characters.",
+      "Merge two sorted linked lists.",
+      "Detect a cycle in a linked list.",
+      "Implement a binary search algorithm.",
+      "Find all permutations of a string.",
+      "Implement a stack using queues."
+    ],
+    "R2": [
+      "Design a URL shortening service like Bit.ly.",
+      "Design a notification system for a social media platform.",
+      "Explain your most complex project. What challenges did you face and how did you solve them?",
+      "How would you design a distributed cache system?",
+      "Design a rate limiter for an API.",
+      "What is the difference between SQL and NoSQL databases? When would you use each?",
+      "How would you handle database schema migrations in a production system?",
+      "Design a real-time chat application like WhatsApp.",
+      "Explain the CAP theorem and its practical implications.",
+      "How would you optimize a slow database query?"
+    ],
+    "R3": [
+      "Tell me about a time you disagreed with your team lead. How did you handle it?",
+      "Describe a situation where you had to work under tight deadlines.",
+      "Give an example of when you had to learn a new technology quickly.",
+      "How do you prioritize tasks when you have multiple deadlines?",
+      "Tell me about a time you failed. What did you learn?",
+      "Describe a situation where you had to mentor a junior team member.",
+      "How do you stay updated with new technologies?",
+      "Give an example of when you took initiative beyond your responsibilities."
+    ],
+    "R4": [
+      "What are your salary expectations?",
+      "Why do you want to leave your current company?",
+      "Why are you interested in our company specifically?",
+      "What is your notice period? Can you join earlier?",
+      "Where do you see yourself in 5 years?",
+      "Do you have any other offers?",
+      "Are you open to relocation?"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+services:
+  api:
+    build: ./backend
+    env_file:
+      - ./backend/.env
+    volumes:
+      - tayyar-storage:/app/storage
+    expose:
+      - "8000"
+    restart: unless-stopped
+
+  web:
+    build: .
+    env_file:
+      - ./.env
+    environment:
+      NODE_ENV: production
+      BACKEND_HOST: api
+      BACKEND_PORT: 8000
+    ports:
+      - "${PORT:-5173}:5173"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  tayyar-storage:

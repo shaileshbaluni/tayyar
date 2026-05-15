@@ -1,0 +1,22 @@
+{
+  "company": "Infosys",
+  "rounds": {
+    "R1": [
+      "Introduce yourself with focus on internships and tech stack.",
+      "Solve: find duplicate in an array of integers — optimize space.",
+      "What attracts you to Infosys specifically?"
+    ],
+    "R2": [
+      "Explain CAP theorem with a real system you built or studied.",
+      "How do you test async microservices end-to-end?"
+    ],
+    "R3": [
+      "Tell me about mentoring a junior or peer.",
+      "A stakeholder changed requirements mid-sprint — what did you do?"
+    ],
+    "R4": [
+      "Notice period and buyout discussion.",
+      "Long-term career goals in consulting vs product delivery?"
+    ]
+  }
+}
