@@ -3,7 +3,7 @@ services:
     name: tayyar-gateway
     runtime: node
     rootDir: .
-    buildCommand: npm install && npm run build
+    buildCommand: npm install && npm --prefix frontend install && npm run build
     startCommand: node server.mjs
     envVars:
       - key: NODE_ENV
