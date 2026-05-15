@@ -4,6 +4,7 @@ import path from "path";
 import { existsSync } from "fs";
 import { fileURLToPath } from "url";
 import { createServer, request as httpRequest } from "http";
+import { request as httpsRequest } from "https";
 import { WebSocketServer, WebSocket } from "ws";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -13,6 +14,8 @@ const PORT = Number(process.env.PORT) || 5173;
 const HOST = process.env.HOST || (isProd ? "0.0.0.0" : "127.0.0.1");
 const BACKEND_HOST = process.env.BACKEND_HOST || "127.0.0.1";
 const BACKEND_PORT = Number(process.env.BACKEND_PORT) || 8000;
+const useHttps = BACKEND_PORT === 443;
+const backendRequest = useHttps ? httpsRequest : httpRequest;
 const distDir = path.join(__dirname, "frontend", "dist");
 
 function backendRequestOptions(reqPath, req, method = req.method) {
@@ -21,13 +24,13 @@ function backendRequestOptions(reqPath, req, method = req.method) {
     port: BACKEND_PORT,
     path: reqPath,
     method,
-    headers: { ...req.headers, host: `${BACKEND_HOST}:${BACKEND_PORT}` },
+    headers: { ...req.headers, host: BACKEND_HOST },
   };
 }
 
 // ── Reverse proxy: /api/v1/* → FastAPI (before body parsers) ──
 app.use("/api/v1", (req, res) => {
-  const proxyReq = httpRequest(backendRequestOptions(`/api/v1${req.url}`, req), (proxyRes) => {
+  const proxyReq = backendRequest(backendRequestOptions(`/api/v1${req.url}`, req), (proxyRes) => {
     res.writeHead(proxyRes.statusCode, proxyRes.headers);
     proxyRes.pipe(res, { end: true });
   });
@@ -43,7 +46,7 @@ app.use("/api/v1", (req, res) => {
 });
 
 app.get("/health", (_req, res) => {
-  const proxyReq = httpRequest(
+  const proxyReq = backendRequest(
     { hostname: BACKEND_HOST, port: BACKEND_PORT, path: "/health", method: "GET" },
     (proxyRes) => {
     let body = "";
@@ -212,7 +215,7 @@ httpServer.on("upgrade", (request, socket, head) => {
       wss.emit("connection", ws, request);
     });
   } else if (url.pathname.startsWith("/api/v1/interview/ws")) {
-    const proxyReq = httpRequest(
+    const proxyReq = backendRequest(
       backendRequestOptions(url.pathname + url.search, request, "GET"),
       () => {},
     );
