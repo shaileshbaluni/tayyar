@@ -369,8 +369,12 @@ export function useGeminiLive() {
 
       try {
         // 1. Open WebSocket to backend
+        const apiBase = import.meta.env.VITE_API_BASE || "";
+        const wsHost = apiBase
+          ? new URL(apiBase).host
+          : window.location.host;
         const proto = window.location.protocol === "https:" ? "wss:" : "ws:";
-        const wsUrl = `${proto}//${window.location.host}/api/v1/interview/ws/${sessionId}`;
+        const wsUrl = `${proto}//${wsHost}/api/v1/interview/ws/${sessionId}`;
         const ws = new WebSocket(wsUrl);
         wsRef.current = ws;
 

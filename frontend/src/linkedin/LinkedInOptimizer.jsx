@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Icon, Donut, Bar, CompanyMark, Avatar, Spark } from '../components/ui';
+import { apiUrl } from '../lib/api';
 
 // --- COMPONENTS ---
 
@@ -54,7 +55,7 @@ export const LinkedInOptimizer = ({ go }) => {
       // 1. If URL, fetch profile first
       let profileData = data;
       if (data.type === 'url') {
-        const fetchRes = await fetch('/api/v1/linkedin/import-url', {
+        const fetchRes = await fetch(apiUrl('/api/v1/linkedin/import-url'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ url: data.url })
@@ -63,7 +64,7 @@ export const LinkedInOptimizer = ({ go }) => {
       }
 
       // 2. Run Audit
-      const auditRes = await fetch('/api/v1/linkedin/audit', {
+      const auditRes = await fetch(apiUrl('/api/v1/linkedin/audit'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(profileData)
@@ -217,7 +218,7 @@ const ImportScreen = ({ onImport }) => {
 const AuditDashboard = ({ audit, profile, setView }) => {
   const generateSection = async (sectionName) => {
     try {
-      const res = await fetch(`/api/v1/linkedin/generate/${sectionName.toLowerCase().replace(' ', '-')}`, {
+      const res = await fetch(apiUrl(`/api/v1/linkedin/generate/${sectionName.toLowerCase().replace(' ', '-')}`), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(profile)
@@ -295,7 +296,7 @@ const HeadlineOptimizer = ({ profile, onBack }) => {
   useEffect(() => {
     const fetchHeadlines = async () => {
       try {
-        const res = await fetch('/api/v1/linkedin/generate/headlines', {
+        const res = await fetch(apiUrl('/api/v1/linkedin/generate/headlines'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
@@ -385,7 +386,7 @@ const AboutOptimizer = ({ profile, onBack }) => {
   useEffect(() => {
     const fetchAbout = async () => {
       try {
-        const res = await fetch('/api/v1/linkedin/generate/about', {
+        const res = await fetch(apiUrl('/api/v1/linkedin/generate/about'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
@@ -501,7 +502,7 @@ const ExperienceOptimizer = ({ profile, onBack }) => {
       const exp = profile?.experience || [];
       const improved = await Promise.all(exp.map(async e => {
         try {
-          const res = await fetch('/api/v1/linkedin/improve/experience', {
+          const res = await fetch(apiUrl('/api/v1/linkedin/improve/experience'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(e)

@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Icon, Donut, Bar, Spark, CompanyMark, Avatar } from '../components/ui';
 
-const API_BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
-const apiUrl = (path) => `${API_BASE}${path.startsWith('/') ? path : `/${path}`}`;
+import { apiUrl } from '../lib/api';
 
 // --- SHARED UI COMPONENTS ---
 

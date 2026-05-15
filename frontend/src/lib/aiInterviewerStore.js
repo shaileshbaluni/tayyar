@@ -1,4 +1,5 @@
 import { DEFAULT_AI_INTERVIEWERS } from "../data/aiInterviewers";
+import { apiUrl } from "./api";
 
 const STORAGE_KEY = "tayyar-ai-interviewer-edits";
 
@@ -14,7 +15,7 @@ export function getServerInterviewersCatalog() {
 }
 
 export async function fetchInterviewersFromApi() {
-  const r = await fetch("/api/v1/ai-interviewers");
+  const r = await fetch(apiUrl("/api/v1/ai-interviewers"));
   if (!r.ok) throw new Error(`interviewers ${r.status}`);
   const data = await r.json();
   const rows = data.interviewers || [];
@@ -125,7 +126,7 @@ export function stopPreviewSpeech() {
 
 /** Push local persona edits that should be team defaults (e.g. geminiVoice) to the API. */
 export async function pushInterviewerPatchesToServer(patchesById) {
-  const r = await fetch("/api/v1/ai-interviewers/overrides", {
+  const r = await fetch(apiUrl("/api/v1/ai-interviewers/overrides"), {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ patches: patchesById }),

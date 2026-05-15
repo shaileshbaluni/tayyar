@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
+import { apiUrl } from "../lib/api";
 import type { MetricsSummary } from "../types/interview";
 
 const INTERVAL_MS = 30_000;
@@ -11,7 +12,7 @@ export function useMetricsBuffer(sessionId: string | null) {
     const payload = aggregate(buf.current);
     buf.current = [];
     try {
-      await fetch(`/api/v1/sessions/${sessionId}/metrics-batch`, {
+      await fetch(apiUrl(`/api/v1/sessions/${sessionId}/metrics-batch`), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
